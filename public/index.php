@@ -19,6 +19,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 //$dotenv = Dotenv\Dotenv::createImmutable('../');
 //$dotenv->load();
 
+$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
+
 $capsule = new Capsule;
 
 $capsule->addConnection([
