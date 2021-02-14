@@ -1,0 +1,36 @@
+{% extends 'layout.twig' %}
+{% block body %}        
+        <article class="blog">
+            <header>
+                <h2><a href="/ejercicios/bbdd/symblog/">{{blog.title}}</a></h2>
+            </header>
+            <img src="../img/{{blog.image}}.jpg">
+            <div class="snippet">
+                <p>{{blog.blog}}</p>
+                <p class="continue"><a href="#">Continue reading...</a>
+            </div>
+            <footer class="meta">
+                <p>Comments: <a href="#">#</a></p>
+                <p>Posted by <span class="highlight">{{blog.author}}</span> at {{blog.created_at|date('h:i A')}}</p>
+                <p>Tags: <span class="highlight">{{blog.tags}}</span></p>
+            </footer>
+        </article>
+        {% for comment in comments %}
+            <article class="comments">
+                <div class="comment">
+                    <p><span class="highlight">{{comment.user}}</span> commented {{comment.created_at|date('\o\n l jS F Y')}}</p>
+                    <p>{{comment.comment}}</p>
+                </div>
+            </article>
+        {% endfor %}
+        <!-- Nuevo comentario -->
+            <h1>Nuevo comentario</h1>
+            <form method="POST" action="/ejercicios/bbdd/symblog/blogs/show?id={{blog.id}}">
+                <label for="autor">Usuario</label>
+                <input type="text" name="autor" id="autor">
+                <label for="comentario">Comentario</label>
+                <textarea name="comentario" id="comentario"></textarea>
+                <input type="submit" value="Enviar comentario" name="Enviar">
+            </form>
+            <br/><br/>
+{% endblock %}

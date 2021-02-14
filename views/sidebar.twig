@@ -1,0 +1,29 @@
+{# sidebar.twig #}
+<section class="section">
+    <header>
+        <h3>Tag Cloud</h3>
+    </header>
+    <p class="tags">
+        {% for weight, tag in tags %}
+            <span class="weight-{{weight}}">{{tag}}</span>
+        {% else %}
+            <p>There are no tags</p>
+        {% endfor %}
+    </p>
+</section>
+<section class="section">
+    <header>
+        <h3>Latest Comments</h3>
+    </header>
+    {% for comment in latestComments %}
+        <article class="comment">
+            <header>
+                <a href="/ejercicios/bbdd/symblog/blogs/{{comment.blog_id}}">
+                <p class="small"><span class="highlight">{{comment.user}}</span> commented</a></p>
+            </header>
+            <p>{{comment.comment}}</p>
+        </article>
+    {% else %}
+        <p>There are no recent comments</p>
+    {% endfor %}
+</section>

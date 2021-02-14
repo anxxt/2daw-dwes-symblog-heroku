@@ -1,0 +1,20 @@
+{% extends 'layout.twig' %}
+{% block body %}
+    <article class="blog">
+        <div>{{responseMessage}}</div>
+        <h3>Login</h3>
+        <form name="formLogin" method="post" action="/ejercicios/bbdd/symblog/login">
+            <div id="enquiry">
+                <div>
+                    <label for="enquiry_email">Email</label><input type="email" id="enquiry_email" name="email"/>
+                </div>
+                <div>
+                    <label for="enquiry_password">Password</label><input type="password" id="enquiry_password" name="password"/>
+                </div>
+                </div>
+                    <input type="submit" id="enquiry_save" name="enquiry[save]">
+                </div>
+            </div>
+        </form>
+    </article>
+{% endblock %}
