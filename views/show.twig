@@ -10,7 +10,7 @@
                 <p class="continue"><a href="#">Continue reading...</a>
             </div>
             <footer class="meta">
-                <p>Comments: <a href="#">#</a></p>
+                <p>Comments: <a href="#">{{blog.comments|length}}</a></p>
                 <p>Posted by <span class="highlight">{{blog.author}}</span> at {{blog.created_at|date('h:i A')}}</p>
                 <p>Tags: <span class="highlight">{{blog.tags}}</span></p>
             </footer>
