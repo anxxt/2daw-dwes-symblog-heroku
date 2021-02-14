@@ -16,17 +16,18 @@ use App\Models\Blog;
 use Aura\Router\RouterContainer;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-$dotenv = Dotenv\Dotenv::createImmutable('../');
-$dotenv->load();
+//$dotenv = Dotenv\Dotenv::createImmutable('../');
+//$dotenv->load();
 
 $capsule = new Capsule;
 
 $capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => $_ENV['DB_HOST'],
-    'database'  => $_ENV['DB_NAME'],
-    'username'  => $_ENV['DB_USER'],
-    'password'  => $_ENV['DB_PASS'],
+    'driver'    => 'pgsql',
+    'host'      => $DATABASE_URL["host"],
+    'port'      => $DATABASE_URL["port"],
+    'database'  => ltrim($DATABASE_URL["path"], "/"),
+    'username'  => $DATABASE_URL["user"],
+    'password'  => $DATABASE_URL["pass"],
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
