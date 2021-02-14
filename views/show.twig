@@ -25,7 +25,7 @@
         {% endfor %}
         <!-- Nuevo comentario -->
             <h1>Nuevo comentario</h1>
-            <form method="POST" action="/blogs/show?id={{blog.id}}">
+            <form method="post" action="/blogs/show?id={{blog.id}}">
                 <label for="autor">Usuario</label>
                 <input type="text" name="autor" id="autor">
                 <label for="comentario">Comentario</label>
@@ -33,4 +33,5 @@
                 <input type="submit" value="Enviar comentario" name="Enviar">
             </form>
             <br/><br/>
+            {{responseMessage}}
 {% endblock %}
