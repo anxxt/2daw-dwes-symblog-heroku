@@ -23,7 +23,7 @@
                 </div>
             </article>
         {% endfor %}
-        <!-- Nuevo comentario -->
+            <div>{{responseMessage}}</div>        
             <h1>Nuevo comentario</h1>
             <form method="post" action="/blogs/show?id={{blog.id}}">
                 <label for="autor">Usuario</label>
@@ -33,5 +33,4 @@
                 <input type="submit" value="Enviar comentario" name="Enviar">
             </form>
             <br/><br/>
-            {{responseMessage}}
 {% endblock %}
