@@ -22,9 +22,9 @@
                     <p>{{comment.comment}}</p>
                 </div>
             </article>
-        {% endfor %}
-            <div>{{responseMessage}}</div>        
+        {% endfor %}     
             <h1>Nuevo comentario</h1>
+            <div>{{responseMessage}}</div>
             <form method="post" action="/blogs/show?id={{blog.id}}">
                 <label for="autor">Usuario</label>
                 <input type="text" name="autor" id="autor">

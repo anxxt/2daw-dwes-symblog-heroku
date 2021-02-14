@@ -46,8 +46,7 @@ class ShowController extends BaseController {
                 $comment->save();
                 $responseMessage = "Comentario guardado";
             } catch (\Exception $e) {
-                $responseMessage = $e;
-                //$responseMessage = "Debes rellenar todos los campos.";
+                $responseMessage = "Debes rellenar todos los campos.";
                 $error = true;
             }
         }
