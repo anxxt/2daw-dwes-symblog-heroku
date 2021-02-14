@@ -2,7 +2,7 @@
 {% block body %}        
         <article class="blog">
             <header>
-                <h2><a href="/ejercicios/bbdd/symblog/">{{blog.title}}</a></h2>
+                <h2><a href="/">{{blog.title}}</a></h2>
             </header>
             <img src="../img/{{blog.image}}.jpg">
             <div class="snippet">
@@ -25,7 +25,7 @@
         {% endfor %}
         <!-- Nuevo comentario -->
             <h1>Nuevo comentario</h1>
-            <form method="POST" action="/ejercicios/bbdd/symblog/blogs/show?id={{blog.id}}">
+            <form method="POST" action="/blogs/show?id={{blog.id}}">
                 <label for="autor">Usuario</label>
                 <input type="text" name="autor" id="autor">
                 <label for="comentario">Comentario</label>

@@ -49,49 +49,49 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
 
-$map->get('index', '/ejercicios/bbdd/symblog/', [
+$map->get('index', '/', [
     'controller' => 'App\Controllers\IndexController',
     'action' => 'indexAction'
 ]);
-$map->get('addBlog', '/ejercicios/bbdd/symblog/blogs/add', [
+$map->get('addBlog', '/blogs/add', [
     'controller' => 'App\Controllers\BlogsController',
     'action' => 'getAddBlogAction',
     'auth' => true
 ]);
-$map->post('saveBlog', '/ejercicios/bbdd/symblog/blogs/add', [
+$map->post('saveBlog', '/blogs/add', [
     'controller' => 'App\Controllers\BlogsController',
     'action' => 'getAddBlogAction'
 ]);
-$map->get('show', '/ejercicios/bbdd/symblog/blogs/show', [
+$map->get('show', '/blogs/show', [
     'controller' => 'App\Controllers\ShowController',
     'action' => 'showAction'
 ]);
-$map->post('postComment', '/ejercicios/bbdd/symblog/blogs/show', [
+$map->post('postComment', '/blogs/show', [
     'controller' => 'App\Controllers\ShowController',
     'action' => 'postComment'
 ]);
-$map->get('addUser', '/ejercicios/bbdd/symblog/users/add', [
+$map->get('addUser', '/users/add', [
     'controller' => 'App\Controllers\UsersController',
     'action' => 'getAddUserAction',
     'auth' => true
 ]);
-$map->post('saveUser', '/ejercicios/bbdd/symblog/users/add', [
+$map->post('saveUser', '/users/add', [
     'controller' => 'App\Controllers\UsersController',
     'action' => 'getAddUserAction'
 ]);
-$map->get('getLogin', '/ejercicios/bbdd/symblog/login', [
+$map->get('getLogin', '/login', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogin'
 ]);
-$map->post('login', '/ejercicios/bbdd/symblog/login', [
+$map->post('login', '/login', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'postLogin'
 ]);
-$map->get('logout', '/ejercicios/bbdd/symblog/logout', [
+$map->get('logout', '/logout', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogout'
 ]);
-$map->get('adminView', '/ejercicios/bbdd/symblog/admin', [
+$map->get('adminView', '/admin', [
     'controller' => 'App\Controllers\AdminController',
     'action' => 'getIndex',
     'auth' => true
@@ -103,7 +103,7 @@ $handlerData = $route->handler;
 $needsAuth = $handlerData['auth'] ?? false;
 $sessionUserId = $_SESSION['userId'] ?? null;
 if ($needsAuth && !$sessionUserId) {
-    header('Location: /ejercicios/bbdd/symblog/login');
+    header('Location: /login');
 } else {
     $controllerName = $handlerData['controller'];
     $actionName = $handlerData['action'];

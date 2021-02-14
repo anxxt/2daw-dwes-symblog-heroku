@@ -18,7 +18,7 @@
     {% for comment in latestComments %}
         <article class="comment">
             <header>
-                <a href="/ejercicios/bbdd/symblog/blogs/{{comment.blog_id}}">
+                <a href="/blogs/{{comment.blog_id}}">
                 <p class="small"><span class="highlight">{{comment.user}}</span> commented</a></p>
             </header>
             <p>{{comment.comment}}</p>
